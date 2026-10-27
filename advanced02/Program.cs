@@ -87,6 +87,15 @@
                 Console.WriteLine(l);
             }
 
+            // Scenario 5: Low-Stock Alert
+            Console.WriteLine("--- Low-Stock Alert ---");
+            var lowStockProducts = ReportService.FilterProducts(catalog, p => p.Stock < 20);
+
+            foreach (var p in lowStockProducts)
+            {
+                Console.WriteLine($"[LOW STOCK] {p.Name}: only {p.Stock} left!");
+            }
+
 
 
 

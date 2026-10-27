@@ -25,5 +25,19 @@ namespace advanced02
         }
 
 
+        public static List<Product> FilterProducts(List<Product> products, Predicate<Product> predicate)
+        {
+            List<Product> filteredList = new();
+            foreach (var product in products)
+            {
+                if (predicate(product)) // التحقق مما إذا كان المنتج يحقق الشرط
+                {
+                    filteredList.Add(product);
+                }
+            }
+            return filteredList;
+        }
+
+
     }
 }
