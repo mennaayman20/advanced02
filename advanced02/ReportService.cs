@@ -13,5 +13,17 @@ namespace advanced02
                 printAction(product); // تنفيذ طريقة الطباعة التي يحددها المستخدم
             }
         }
+
+        public static List<TResult> TransformProducts<TResult>(List<Product> products, Func<Product, TResult> transformer)
+        {
+            List<TResult> results = new();
+            foreach (var product in products)
+            {
+                results.Add(transformer(product)); // تطبيق دالة التحويل الممررة على كل منتج
+            }
+            return results;
+        }
+
+
     }
 }

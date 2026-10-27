@@ -71,7 +71,21 @@
             ReportService.PrintReport(catalog, p => Console.WriteLine($"[{p.Category}] {p.Name} | Price: ${p.Price} | Stock: {p.Stock}"));
 
 
+            // Scenario 3: Summary List
+            Console.WriteLine("--- Summary List ---");
+            var summaries = ReportService.TransformProducts(catalog, p => $"{p.Name} (${p.Price})");
+            foreach (var s in summaries)
+            {
+                Console.WriteLine(s);
+            }
 
+            // Scenario 4: Price Labels
+            Console.WriteLine("\n--- Price Labels ---");
+            var labels = ReportService.TransformProducts(catalog, p => $"{p.Name}: {(p.Price > 100 ? "Expensive!" : "Affordable")}");
+            foreach (var l in labels)
+            {
+                Console.WriteLine(l);
+            }
 
 
 
