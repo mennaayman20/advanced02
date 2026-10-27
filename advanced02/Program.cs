@@ -11,6 +11,7 @@
 
     internal class Program
     {
+
         static void Main(string[] args)
         {
             // 2. Product Catalog
