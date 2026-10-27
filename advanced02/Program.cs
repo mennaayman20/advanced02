@@ -62,7 +62,13 @@
 
 
 
+            // Scenario 1: Short Report
+            Console.WriteLine("--- Short Report ---");
+            ReportService.PrintReport(catalog, p => Console.WriteLine($"{p.Name} - ${p.Price}"));
 
+            // Scenario 2: Detailed Report
+            Console.WriteLine("\n--- Detailed Report ---");
+            ReportService.PrintReport(catalog, p => Console.WriteLine($"[{p.Category}] {p.Name} | Price: ${p.Price} | Stock: {p.Stock}"));
 
 
 
