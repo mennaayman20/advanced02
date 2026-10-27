@@ -28,8 +28,37 @@
             new Product { Id = 10, Name = "Jacket", Category = "Clothing", Price = 120, Stock = 15 }
         };
 
+            // call delegate
 
 
+
+            Console.WriteLine("--- Electronics ---");
+            var electronics = SearchProducts.SearchProduct(catalog, p => p.Category == "Electronics");
+
+            foreach (var p in electronics)
+            {
+                Console.WriteLine($"{p.Name} - ${p.Price} (Stock: {p.Stock})");
+            }
+
+
+            Console.WriteLine("\n--- Under $50 ---");
+            var under50 = SearchProducts.SearchProduct(catalog, p => p.Price < 50);
+            foreach (var p in under50)
+                Console.WriteLine($"{p.Name} - ${p.Price} (Stock: {p.Stock})");
+
+            Console.WriteLine("\n--- In Stock ---");
+            var inStock = SearchProducts.SearchProduct(catalog, p => p.Stock > 0);
+            foreach (var p in inStock)
+            {
+                Console.WriteLine($"{p.Name} - ${p.Price} (Stock: {p.Stock})");
+            }
+
+            Console.WriteLine("\n--- Clothing Under $100 ---");
+            var clothingUnder100 = SearchProducts.SearchProduct(catalog, p => p.Category == "Clothing" && p.Price < 100);
+            foreach (var p in clothingUnder100)
+            {
+                Console.WriteLine($"{p.Name} - ${p.Price} (Stock: {p.Stock})");
+            }
 
 
 
